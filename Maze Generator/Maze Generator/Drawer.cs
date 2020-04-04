@@ -63,6 +63,7 @@ namespace Maze_Generator
 
         public static Bitmap DrawSolution(Maze maze, Bitmap bitmap)
         {
+            bitmap = (Bitmap)bitmap.Clone();
             float cellSize = bitmap.Width / maze.SizeX;
             List<Maze.Directions> directions = maze.Solve();
             List<PointF> points = new List<PointF>();

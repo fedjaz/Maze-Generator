@@ -11,26 +11,24 @@ namespace Maze_Generator
         public enum Directions
         {
             Up,
-            Right,
             Down,
-            Left
+            Left,
+            Right
         }
-        public int SizeX { get; }
-        public int SizeY { get; }
+        public int SizeX { get => cells.GetLength(1); }
+        public int SizeY { get => cells.GetLength(0); }
         Cell[,] cells;
 
-        public Maze(int y, int x)
+        public Maze(int sizeY, int sizeX)
         {
-            cells = new Cell[y, x];
-            for(int i = 0; i < y; i++)
+            cells = new Cell[sizeY, sizeX];
+            for(int i = 0; i < sizeY; i++)
             {
-                for(int j = 0; j < x; j++)
+                for(int j = 0; j < sizeX; j++)
                 {
                     cells[i, j] = new Cell();
                 }
             }
-            SizeX = x;
-            SizeY = y;
         }
 
         public Cell this[int i, int j]
